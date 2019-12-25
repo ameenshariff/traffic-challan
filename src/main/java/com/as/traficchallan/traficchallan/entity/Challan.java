@@ -8,7 +8,7 @@ import javax.persistence.SequenceGenerator;
 @Entity
 public class Challan {
 	@Id
-	@SequenceGenerator(initialValue = 1050, allocationSize = 1, name = "challan_sequence", sequenceName = "challan_sequence")
+	@SequenceGenerator(initialValue = 1100, allocationSize = 1, name = "challan_sequence", sequenceName = "challan_sequence")
 	@GeneratedValue(generator = "challan_sequence")
 	private int challanId;
 	private String vehicleNumber;
@@ -16,18 +16,20 @@ public class Challan {
 	private String description;
 	private String area;
 	private String challanPaidDate;
+	private double amount;
 	
 	public Challan() {
 		
 	}
 	
 	public Challan(String vehicleNumber, String challanGeneratedDate, String description, String area,
-			String challanPaidDate) {
+			String challanPaidDate, double amount) {
 		this.vehicleNumber = vehicleNumber;
 		this.challanGeneratedDate = challanGeneratedDate;
 		this.description = description;
 		this.area = area;
 		this.challanPaidDate = challanPaidDate;
+		this.amount = amount;
 	}
 
 	public int getChallanId() {
@@ -78,11 +80,19 @@ public class Challan {
 		this.challanPaidDate = challanPaidDate;
 	}
 
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
 	@Override
 	public String toString() {
 		return "Challan [challanId=" + challanId + ", vehicleNumber=" + vehicleNumber + ", challanGeneratedDate="
 				+ challanGeneratedDate + ", description=" + description + ", area=" + area + ", challanPaidDate="
-				+ challanPaidDate + "]";
+				+ challanPaidDate + ", amount=" + amount + "]";
 	}
 	
 

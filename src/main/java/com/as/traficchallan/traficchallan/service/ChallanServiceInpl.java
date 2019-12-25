@@ -20,7 +20,8 @@ public class ChallanServiceInpl implements ChallanService {
 
 		List<Challan> ch = challanRepo.findByvehicleNumber(vehicleNumber);
 		if (ch.isEmpty())
-			throw new ChallansNotFoundException("No Vehicle is found with Number = " + vehicleNumber);
+//			throw new ChallansNotFoundException("No Vehicle is found with Number = " + vehicleNumber);
+			return ch;
 		else
 			return ch;
 	}
